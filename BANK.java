@@ -1,64 +1,33 @@
-package bankproject;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-public class BANK {
-	double balance;
-	String name;
-	public BANK(String name) {
-	this.name=name;
-	balance=0;
-	}
+package bank;
+import java.util.*;
+public class Bank {
+	private List<Customer> customers;
+	private List<Account> accounts;
 	
-	//deposite method
-public void deposite(double amount) {
-balance+=amount;
-System.out.println(name+" has "+balance);
-System.out.println("deposite completed");
-}
-//withdraw method
-public void withdraw (double amount) {
-	if(amount<= balance && balance != 0) {
-	balance-=amount;
-	System.out.println(name+" withdrawed "+ amount);
-	System.out.println("withdraw completed");
+	public Bank() {
+		this.customers = new ArrayList<>();
+		this.accounts = new ArrayList<>();
 	}
-	else {
-		System.out.println("can not operate");
+	public void addCustomer(Customer cutomer) {
+		customers.add(cutomer);
 	}
-	
-}
-//transfer method
-//create reference variable called account 
-public void transfer( double amount, BANK account) {
-	//check whether the transfer is allowed
-	if(balance<amount) {
-	System.out.println("eror");	
+	public void removeCustomer(Customer customer) {
+		customers.remove(customer);
 	}
-	else {
-		balance-=amount;
-		account.balance+=amount;
-	System.out.println(name+" now has "+balance);
-	System.out.println(account.name+" now has "+account.balance);
-	System.out.println("transfer succeed");
-	}}
-//date method
-	public void getDate() {
-		LocalDate today = LocalDate.now();
-		LocalTime time = LocalTime.now();
-
-
-		DateTimeFormatter mydate = DateTimeFormatter.ofPattern("E,dd MMM YYY");
-		DateTimeFormatter mytime = DateTimeFormatter.ofPattern("HH mm SS");
-
-
-		String date = today.format(mydate);
-		String day =time.format(mytime);
-
-
-		System.out.println("done in " + date);
-		System.out.print("in"+ day);
-	
-}
-
+	public void openAccount(Customer customer, double balnce) {
+		Account account = new Account(customer, balnce);
+		accounts.add(account);
+	}
+	public void deposite(Account account, double amount) {
+		
+		account.setBalance(account.getBalance() + amount);
+		 
+	}
+	public void withdraw(Account account, double amount) {
+		account.setBalance(account.getBalance() - amount);
+	}
+	public void transfer(Account account1, Account account2, double amount) {
+		account2.setBalance(account2.getBalance() + amount);
+		account1.setBalance(account1.getBalance() - amount);
+	}
 }
