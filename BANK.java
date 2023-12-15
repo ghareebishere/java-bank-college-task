@@ -18,9 +18,9 @@ System.out.println("deposite completed");
 }
 //withdraw method
 public void withdraw (double amount) {
-	if(amount<= balance) {
+	if(amount<= balance && balance != 0) {
 	balance-=amount;
-	System.out.println(name+" withdrawed "+ balance);
+	System.out.println(name+" withdrawed "+ amount);
 	System.out.println("withdraw completed");
 	}
 	else {
