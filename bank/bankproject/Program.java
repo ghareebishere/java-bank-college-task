@@ -7,7 +7,9 @@ public class Program {
 		BANK saif=new BANK("saif", 100);
 		System.out.println("Saif Id: " + saif.getId());
 		saif.deposit(1000);
+		saif.deposit(-100);	
 		saif.withdraw(300);
+		saif.withdraw(5000);
 		saif.getBalance();
 	
 		// second bank

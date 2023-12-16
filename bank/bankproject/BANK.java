@@ -65,7 +65,7 @@ public class BANK {
 		System.out.println();
 		}
 		else {
-			System.out.println("Balance error.");
+			System.out.println("Not enough balance.");
 			System.out.println();
 		}
 	}
