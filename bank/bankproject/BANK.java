@@ -32,8 +32,8 @@ public class BANK {
 		return this.id;
 	}
 	
-	//deposite method
-	public void deposite(double amount) {
+	//deposit method
+	public void deposit(double amount) {
 		if(amount <= 0) {
 			 System.out.println("Invalid amount. Amount must be greater than zero.");
 			 System.out.println();
@@ -43,10 +43,11 @@ public class BANK {
 		System.out.println(name+" has "+balance);
 		System.out.println();
 	}
+	
 	//withdraw method
 	public void withdraw (double amount) {
 		if(amount<= balance && balance != 0) {
-		balance-=amount;
+		balance -= amount;
 		System.out.println(name+" withdrawed "+ amount);
 		System.out.println("withdraw completed");
 		System.out.println();
@@ -56,21 +57,22 @@ public class BANK {
 			System.out.println();
 		}
 	}
-	//transfer method
-	//create reference variable called account 
-	public void transfer( double amount, BANK account) {
+	
+	//transfer method 
+	public void transfer(double amount, BANK account) {
 		//check whether the transfer is allowed
-		if(balance<amount) {
+		if(this.balance < amount) {
 			System.out.println("Not enough balance.");	
+			System.out.println();
 		}
 		else {
-			balance-=amount;
-			account.balance+=amount;
+			this.balance -= amount;
+			account.balance += amount;
 			System.out.println("transfer succeed");
 			System.out.println(name+" now has "+balance);
 			System.out.println(account.name+" now has "+account.balance);
 	}}
-//date method
+	//date method
 	public void getDate() {
 		LocalDate today = LocalDate.now();
 		LocalTime time = LocalTime.now();
