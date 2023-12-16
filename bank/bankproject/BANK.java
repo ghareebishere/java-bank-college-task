@@ -36,10 +36,12 @@ public class BANK {
 	public void deposite(double amount) {
 		if(amount <= 0) {
 			 System.out.println("Invalid amount. Amount must be greater than zero.");
+			 System.out.println();
 		}
 		balance += amount;
 		System.out.println("Deposite process completed.");
 		System.out.println(name+" has "+balance);
+		System.out.println();
 	}
 	//withdraw method
 	public void withdraw (double amount) {
@@ -47,9 +49,11 @@ public class BANK {
 		balance-=amount;
 		System.out.println(name+" withdrawed "+ amount);
 		System.out.println("withdraw completed");
+		System.out.println();
 		}
 		else {
-			System.out.println("can not operate");
+			System.out.println("Balance error.");
+			System.out.println();
 		}
 	}
 	//transfer method
