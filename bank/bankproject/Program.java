@@ -12,9 +12,11 @@ public class Program {
     aymen.deposit(300);
     
     saif.transfer(500, aymen);
+    
     saif.transfer(5000, aymen);
     aymen.withdraw(500);
-    saif.getDate();
+    saif.History();
+   
 	}
 
 }

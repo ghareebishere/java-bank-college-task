@@ -7,6 +7,7 @@ public class BANK {
 	double balance;
 	String name;
 	int id;
+	ArrayList<String> History = new ArrayList<>();
 	
 	public BANK(String name, double balance) {
 	this.name=name;
@@ -17,6 +18,10 @@ public class BANK {
 	
 	public double getBalance() {
 		return this.balance;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	public int createId() {
@@ -39,6 +44,7 @@ public class BANK {
 			 System.out.println();
 		}
 		balance += amount;
+		History.add(amount + " Deposited in " + getDate());
 		System.out.println("Deposite process completed.");
 		System.out.println(name+" has "+balance);
 		System.out.println();
@@ -48,6 +54,7 @@ public class BANK {
 	public void withdraw (double amount) {
 		if(amount<= balance && balance != 0) {
 		balance -= amount;
+		History.add(amount + " Withdrawed in " + getDate());
 		System.out.println(name+" withdrawed "+ amount);
 		System.out.println("withdraw completed");
 		System.out.println();
@@ -68,12 +75,13 @@ public class BANK {
 		else {
 			this.balance -= amount;
 			account.balance += amount;
+			History.add(amount + " transferd to " + account.getName() + " in " + getDate());
 			System.out.println("transfer succeed");
-			System.out.println(name+" now has "+balance);
-			System.out.println(account.name+" now has "+account.balance);
+			System.out.println(this.name+" now has "+this.balance);
+			System.out.println(account.getName()+" now has "+account.getBalance());
 	}}
 	//date method
-	public void getDate() {
+	public String getDate() {
 		LocalDate today = LocalDate.now();
 		LocalTime time = LocalTime.now();
 
@@ -83,12 +91,17 @@ public class BANK {
 
 
 		String date = today.format(mydate);
-		String day =time.format(mytime);
+		String t =time.format(mytime);
+		String dateAndTime = date + " " + t;
 
-
-		System.out.println("done in " + date);
-		System.out.print("in"+ day);
+		
+		return dateAndTime;
 	
 }
+	public void History() {
+		 for (String item : this.History) {
+	            System.out.println(item);
+	        }
+	}
 
 }
