@@ -6,10 +6,12 @@ public class BANK {
 	double balance;
 	String name;
 	
-	public BANK(String name) {
+	public BANK(String name, double balance) {
 	this.name=name;
+	this.balance = balance;
 	balance=0;
 	}
+	
 	
 	//deposite method
 	public void deposite(double amount) {
