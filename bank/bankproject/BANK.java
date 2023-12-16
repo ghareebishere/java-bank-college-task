@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+
 public class BANK {
 	double balance;
 	String name;
@@ -16,14 +17,17 @@ public class BANK {
 	balance=0;
 	}
 	
+	//balance getter
 	public double getBalance() {
 		return this.balance;
 	}
 	
+	//name getter
 	public String getName() {
 		return this.name;
 	}
 	
+	//create an id
 	public int createId() {
 		Random random = new Random();
 		int n1 = random.nextInt(100);
@@ -33,6 +37,7 @@ public class BANK {
 		return id;
 	}
 	
+	//id getter
 	public int getId() {
 		return this.id;
 	}
@@ -99,11 +104,13 @@ public class BANK {
 		
 		return dateAndTime;
 	
-}
-	
+	}
+	//record setter
 	public void setRecord(String record) {
 		this.History.add(record);
 	}
+	
+	//History getter
 	public void History() {
 		System.out.println(this.name + " History: ");
 		 for (String item : this.History) {
