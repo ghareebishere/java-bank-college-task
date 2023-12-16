@@ -44,7 +44,7 @@ public class BANK {
 			 System.out.println();
 		}
 		balance += amount;
-		History.add(amount + " Deposited in " + getDate());
+		this.setRecord(amount + " Deposited in " + getDate());
 		System.out.println("Deposite process completed.");
 		System.out.println(name+" has "+balance);
 		System.out.println();
@@ -54,7 +54,7 @@ public class BANK {
 	public void withdraw (double amount) {
 		if(amount<= balance && balance != 0) {
 		balance -= amount;
-		History.add(amount + " Withdrawed in " + getDate());
+		this.setRecord(amount + " Withdrawed in " + getDate());
 		System.out.println(name+" withdrawed "+ amount);
 		System.out.println("withdraw completed");
 		System.out.println();
@@ -75,7 +75,8 @@ public class BANK {
 		else {
 			this.balance -= amount;
 			account.balance += amount;
-			History.add(amount + " transferd to " + account.getName() + " in " + getDate());
+			this.setRecord(amount + " transferd to " + account.getName() + " in " + getDate());
+			account.setRecord(amount + " transferd from " + this.getName() + " in " + getDate());
 			System.out.println("transfer succeed");
 			System.out.println(this.name+" now has "+this.balance);
 			System.out.println(account.getName()+" now has "+account.getBalance());
@@ -99,10 +100,16 @@ public class BANK {
 		return dateAndTime;
 	
 }
+	
+	public void setRecord(String record) {
+		this.History.add(record);
+	}
 	public void History() {
+		System.out.println(this.name + " History: ");
 		 for (String item : this.History) {
 	            System.out.println(item);
 	        }
+		 System.out.println();
 	}
 
 }
