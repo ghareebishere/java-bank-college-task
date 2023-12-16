@@ -1,19 +1,35 @@
 package bankproject;
 import java.time.LocalDate;
+import java.util.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 public class BANK {
 	double balance;
 	String name;
+	int id;
 	
 	public BANK(String name, double balance) {
 	this.name=name;
 	this.balance = balance;
+	this.id =createId();
 	balance=0;
 	}
 	
 	public double getBalance() {
 		return this.balance;
+	}
+	
+	public int createId() {
+		Random random = new Random();
+		int n1 = random.nextInt();
+		int n2 = random.nextInt();
+		int n3 = random.nextInt();
+		int id = (100 * n1) + (10 * n2) + n3;
+		return id;
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 	
 	//deposite method
