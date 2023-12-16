@@ -5,17 +5,21 @@ import java.time.format.DateTimeFormatter;
 public class BANK {
 	double balance;
 	String name;
+	
 	public BANK(String name) {
 	this.name=name;
 	balance=0;
 	}
 	
 	//deposite method
-public void deposite(double amount) {
-balance+=amount;
-System.out.println(name+" has "+balance);
-System.out.println("deposite completed");
-}
+	public void deposite(double amount) {
+		if(amount <= 0) {
+			System.out.println("Invalid amount.");
+		}
+		balance+=amount;
+		System.out.println(name+" has "+balance);
+		System.out.println("Deposite completed");
+	}
 //withdraw method
 public void withdraw (double amount) {
 	if(amount<= balance && balance != 0) {
