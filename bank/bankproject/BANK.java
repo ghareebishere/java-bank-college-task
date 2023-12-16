@@ -79,6 +79,7 @@ public class BANK {
 			System.out.println("transfer succeed");
 			System.out.println(this.name+" now has "+this.balance);
 			System.out.println(account.getName()+" now has "+account.getBalance());
+			System.out.println();
 	}}
 	//date method
 	public String getDate() {
