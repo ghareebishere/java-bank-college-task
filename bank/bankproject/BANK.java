@@ -12,6 +12,9 @@ public class BANK {
 	balance=0;
 	}
 	
+	public double getBalance() {
+		return this.balance;
+	}
 	
 	//deposite method
 	public void deposite(double amount) {
