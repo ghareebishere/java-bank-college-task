@@ -35,7 +35,7 @@ public class BANK {
 	//deposite method
 	public void deposite(double amount) {
 		if(amount <= 0) {
-			 throw new IllegalArgumentException("Invalid amount. Amount must be greater than zero.");
+			 System.out.println("Invalid amount. Amount must be greater than zero.");
 		}
 		balance += amount;
 		System.out.println("Deposite process completed.");
